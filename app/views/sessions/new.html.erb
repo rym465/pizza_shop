@@ -1,5 +1,3 @@
-<!-- <h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p> -->
 <% provide(:title, "Log in") %>
 <h1>Log in</h1>
 
@@ -12,6 +10,11 @@
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>

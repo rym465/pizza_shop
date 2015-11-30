@@ -13,16 +13,12 @@
       padding-top: 50px;
     }
 
-    ul
-{
+    ul{
     list-style-type: none;
     padding:0;
-}
+    }
   </style>
 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
 
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
@@ -73,6 +69,15 @@
 
 
   </div>
+    <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
 
   
 </body>
